@@ -1,0 +1,362 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+body{
+
+margin:0;
+
+font-family:'Poppins',sans-serif;
+
+background:#FCFBF7;
+
+color:#2E3440;
+
+font-size:17px;
+
+line-height:1.9;
+
+}
+
+/* ---------- HEADER ---------- */
+
+header{
+
+padding:45px 20px;
+
+text-align:center;
+
+background:#FCFBF7;
+
+border-bottom:1px solid #EAE5F5;
+
+}
+
+/* ---------- LAYOUT ---------- */
+
+.layout{
+
+display:flex;
+
+min-height:100vh;
+
+}
+
+/* ---------- SIDEBAR ---------- */
+
+#sidebar{
+
+width:280px;
+
+background:#FFFFFF;
+
+padding:28px;
+
+overflow-y:auto;
+
+border-right:1px solid #EAE5F5;
+
+}
+
+#sidebar h3{
+
+margin-top:28px;
+
+margin-bottom:12px;
+
+font-size:17px;
+
+font-weight:600;
+
+color:#46506A;
+
+}
+
+.sidebar-item{
+
+padding:10px 14px;
+
+margin:4px 0;
+
+cursor:pointer;
+
+border-radius:10px;
+
+transition:0.25s;
+
+color:#5A6472;
+
+}
+
+.sidebar-item:hover{
+
+background:#F3EFFB;
+
+padding-left:18px;
+
+color:#8B7CC8;
+
+}
+
+/* ---------- CONTENT ---------- */
+
+#content{
+
+flex:1;
+
+padding:50px;
+
+background:#FCFBF7;
+
+}
+
+.container{
+
+max-width:900px;
+
+margin:auto;
+
+padding:50px 20px;
+
+}
+
+/* ---------- LOGO ---------- */
+
+.logo{
+
+width:165px;
+
+margin-bottom:18px;
+
+}
+
+/* ---------- TITLE ---------- */
+
+.hero h1{
+
+font-size:48px;
+
+margin:0;
+
+font-family:'Cormorant Garamond',serif;
+
+font-weight:600;
+
+color:#46506A;
+
+letter-spacing:.5px;
+
+}
+
+.header-title{
+
+font-size:24px;
+
+font-weight:600;
+
+color:#46506A;
+
+}
+
+/* ---------- TAGLINE ---------- */
+
+.tagline{
+
+font-size:18px;
+
+margin-top:12px;
+
+color:#6B7280;
+
+}
+
+/* ---------- CARDS ---------- */
+
+.card{
+
+background:#FFFFFF;
+
+padding:28px;
+
+margin-bottom:20px;
+
+border-radius:16px;
+
+cursor:pointer;
+
+transition:.25s;
+
+border:1px solid #EAE5F5;
+
+box-shadow:0 2px 8px rgba(0,0,0,.04);
+
+}
+
+.card:hover{
+
+transform:translateY(-3px);
+
+box-shadow:0 6px 18px rgba(0,0,0,.06);
+
+border-color:#DCCFF5;
+
+}
+
+.card h2{
+
+margin-top:0;
+
+margin-bottom:10px;
+
+font-size:24px;
+
+font-weight:600;
+
+color:#46506A;
+
+}
+
+.card p{
+
+margin-bottom:0;
+
+color:#5A6472;
+
+}
+
+/* ---------- MARKDOWN ---------- */
+
+#content h1{
+
+font-size:40px;
+
+color:#46506A;
+
+margin-bottom:20px;
+
+}
+
+#content h2{
+
+margin-top:40px;
+
+color:#46506A;
+
+}
+
+#content h3{
+
+margin-top:30px;
+
+color:#46506A;
+
+}
+
+#content p{
+
+color:#4B5563;
+
+}
+
+#content img{
+
+max-width:100%;
+
+border-radius:12px;
+
+margin:25px 0;
+
+}
+
+#content table{
+
+width:100%;
+
+border-collapse:collapse;
+
+margin:25px 0;
+
+}
+
+#content th{
+
+background:#F7F4FC;
+
+padding:12px;
+
+border:1px solid #EAE5F5;
+
+}
+
+#content td{
+
+padding:12px;
+
+border:1px solid #EAE5F5;
+
+}
+
+#content code{
+
+background:#F6F4FA;
+
+padding:3px 6px;
+
+border-radius:5px;
+
+font-size:15px;
+
+}
+
+/* ---------- MOBILE ---------- */
+
+@media(max-width:768px){
+
+.hero h1{
+
+font-size:34px;
+
+}
+
+.logo{
+
+width:130px;
+
+}
+
+body{
+
+font-size:16px;
+
+}
+
+.layout{
+
+flex-direction:column;
+
+}
+
+#sidebar{
+
+width:100%;
+
+padding:18px;
+
+border-right:none;
+
+border-bottom:1px solid #EAE5F5;
+
+}
+
+#content{
+
+padding:24px;
+
+}
+
+.card{
+
+padding:22px;
+
+}
+
+}
