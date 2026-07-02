@@ -3,6 +3,8 @@
 Ohm’s Law states that current flowing through a conductor is directly proportional to the voltage across it, 
 provided temperature remains constant.
 
+<img src="assets/animations/ohms-law.svg" alt="Ohm's Law Animation">
+
 ---
 
 ## Formula

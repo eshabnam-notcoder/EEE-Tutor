@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="220" viewBox="0 0 600 220">
+
+  <style>
+    .wire{
+      fill:none;
+      stroke:#555;
+      stroke-width:4;
+    }
+
+    .battery{
+      stroke:#8B7CC8;
+      stroke-width:4;
+    }
+
+    .resistor{
+      fill:none;
+      stroke:#8B7CC8;
+      stroke-width:4;
+    }
+
+    .electron{
+      fill:#8B7CC8;
+    }
+
+    text{
+      font-family:Arial;
+      fill:#2E3440;
+    }
+  </style>
+
+  <!-- Circuit -->
+
+  <path class="wire" d="M100 60
+           H500
+           V160
+           H100
+           Z"></path>
+
+  <!-- Battery -->
+
+  <line class="battery" x1="150" y1="45" x2="150" y2="75"></line>
+  <line class="battery" x1="165" y1="35" x2="165" y2="85"></line>
+
+  <!-- Resistor -->
+
+  <polyline class="resistor" points="
+      330,60
+      340,50
+      350,70
+      360,50
+      370,70
+      380,50
+      390,70
+      400,60"></polyline>
+
+  <!-- Moving electron -->
+
+  <circle r="5" class="electron">
+      <animateMotion dur="4s" repeatCount="indefinite" path="
+          M100 60
+          H500
+          V160
+          H100
+          Z"></animateMotion>
+  </circle>
+
+  <!-- Labels -->
+
+  <text x="135" y="25">Battery (V)</text>
+
+  <text x="320" y="35">Resistance (R)</text>
+
+  <text x="230" y="205" font-size="24">
+      Ohm's Law: I = V / R
+  </text>
+
+</svg>
