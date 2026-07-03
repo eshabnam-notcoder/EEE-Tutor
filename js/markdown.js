@@ -23,7 +23,11 @@ async function loadTopic() {
 
         document.getElementById("content").innerHTML =
             marked.parse(markdown);
-
+        document.getElementById("content").scrollTo({
+            top: 0,
+            behavior: "smooth"
+        })
+        updateBreadcrumb();
     } catch (error) {
 
         document.getElementById("content").innerHTML =
@@ -36,3 +40,27 @@ async function loadTopic() {
 }
 
 loadTopic();
+
+function updateBreadcrumb() {
+
+    const section = localStorage.getItem("section") || "";
+    const topic = localStorage.getItem("topic") || "";
+
+    const breadcrumb = document.getElementById("breadcrumb");
+
+    if (!breadcrumb) return;
+
+    breadcrumb.innerHTML = `
+        <a href="index.html">Home</a>
+        &nbsp;›&nbsp;
+        ${getSectionDisplayName(section) || section}
+        &nbsp;›&nbsp;
+        ${getTopicTitle(
+            Object.keys(topics).find(s =>
+            s.toLowerCase().replace(/\s+/g, "-") === localStorage.getItem("section")
+            ),
+            topic
+        )}
+    `;
+}
+

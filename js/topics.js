@@ -54,7 +54,7 @@ const topics = {
         },
          {
             title: "Three phase circuits",
-            file: "three-phase-pcircuits"
+            file: "three-phase-circuits"
         },
          {
             title: "Magnetic Circuits",
@@ -142,6 +142,22 @@ const topics = {
          {
             title: "Transmission - Part 4",
             file: "transmission-part4"
+        },
+         {
+            title: "Distribution System Layout",
+            file: "distribution-part1"
+        },
+         {
+            title: "Radial Distribution System",
+            file: "distribution-part2"
+        },
+         {
+            title: "Ring Main Distribution",
+            file: "distribution-part3"
+        },
+         {
+            title: "Components - Alternators and Transformers",
+            file: "components-part1"
         }
 
     ],

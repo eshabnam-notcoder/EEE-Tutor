@@ -10,17 +10,20 @@
 <header>
 
 <div class="header-title">
-EEE Tutor
+    <a href="index.html" class="home-link">EEE Tutor</a>
 </div>
 
-<button onclick="goHome()">Home</button>
-
 </header>
+<div id="nav-buttons">
+    <button onclick="prevTopic()">Previous</button>
+    <button onclick="nextTopic()">Next</button>
+</div>
+<div id="breadcrumb"></div>
 
 <div class="layout">
 
 <aside id="sidebar">
-
+<input type="text" id="search" placeholder="Search topics...">
 </aside>
 
 <main id="content">
