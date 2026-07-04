@@ -1,19 +1,70 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+/* ==========================================================
+   EEE TUTOR UI 2026
+   PART 1 - Foundation
+========================================================== */
+
+/* ---------- GOOGLE FONTS ---------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* ---------- COLOR SYSTEM ---------- */
+
+:root{
+
+    --primary:#2563EB;
+    --secondary:#06B6D4;
+    --accent:#F59E0B;
+
+    --bg:#F8FAFC;
+    --bg-soft:#EEF6FF;
+
+    --card:#FFFFFF;
+
+    --text:#0F172A;
+    --text-light:#475569;
+
+    --border:#DBEAFE;
+
+    --shadow:
+        0 12px 30px rgba(37,99,235,.08);
+
+    --shadow-hover:
+        0 22px 50px rgba(37,99,235,.18);
+
+}
+
+/* ---------- GLOBAL ---------- */
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
 
 body{
 
-margin:0;
+    margin:0;
 
-font-family:'Poppins',sans-serif;
+    font-family:'Inter',sans-serif;
 
-background:#FCFBF7;
+    background:
+    linear-gradient(
+        180deg,
+        var(--bg),
+        var(--bg-soft)
+    );
 
-color:#2E3440;
+    color:var(--text);
 
-font-size:17px;
+    font-size:17px;
 
-line-height:1.9;
+    line-height:1.8;
+
+    -webkit-font-smoothing:antialiased;
+
+    text-rendering:optimizeLegibility;
 
 }
 
@@ -21,132 +72,184 @@ line-height:1.9;
 
 header{
 
-padding:45px 20px;
+    padding:50px 20px;
 
-text-align:center;
+    text-align:center;
 
-background:#FCFBF7;
+    background:transparent;
 
-border-bottom:1px solid #EAE5F5;
+    border-bottom:1px solid var(--border);
 
 }
 
 /* ---------- LAYOUT ---------- */
 
-.layout {
-    display: flex;
-    height: 100vh;
-    overflow: hidden; /* IMPORTANT: prevents page scroll */
+.layout{
+
+    display:flex;
+
+    height:100vh;
+
+    overflow:hidden;
+
 }
 
 /* ---------- SIDEBAR ---------- */
 
-#sidebar {
-    width: 280px;
-    background: #FFFFFF;
-    padding: 28px;
-    overflow-y: auto;
-    border-right: 1px solid #EAE5F5;
-    height: 100vh;
+#sidebar{
+
+    width:290px;
+
+    background:rgba(255,255,255,.92);
+
+    backdrop-filter:blur(10px);
+
+    padding:28px;
+
+    overflow-y:auto;
+
+    border-right:1px solid var(--border);
+
+    height:100vh;
+
 }
 
 #sidebar h3{
 
-margin-top:28px;
+    margin-top:28px;
 
-margin-bottom:12px;
+    margin-bottom:12px;
 
-font-size:17px;
+    font-size:16px;
 
-font-weight:600;
+    font-weight:700;
 
-color:#46506A;
+    color:var(--text);
+
+    letter-spacing:.3px;
 
 }
 
 .sidebar-item{
 
-padding:10px 14px;
+    padding:12px 16px;
 
-margin:4px 0;
+    margin:6px 0;
 
-cursor:pointer;
+    cursor:pointer;
 
-border-radius:10px;
+    border-radius:12px;
 
-transition:0.25s;
+    transition:all .3s ease;
 
-color:#5A6472;
+    color:var(--text-light);
 
-}
-
-.sidebar-item.active {
-    background: #F3EFFB;
-    color: #8B7CC8;
-    border-left: 4px solid #8B7CC8;
-    padding-left: 14px;
 }
 
 .sidebar-item:hover{
 
-background:#F3EFFB;
+    background:#EFF6FF;
 
-padding-left:18px;
+    color:var(--primary);
 
-color:#8B7CC8;
+    transform:translateX(6px);
 
 }
 
-.sidebar-item:hover {
-    background: #F3EFFB;
-    color: #8B7CC8;
+.sidebar-item.active{
+
+    background:
+    linear-gradient(
+        90deg,
+        var(--primary),
+        var(--secondary)
+    );
+
+    color:white;
+
+    box-shadow:
+    0 8px 20px rgba(37,99,235,.25);
+
 }
 
-.sidebar-item.active:hover {
-    background: #F3EFFB;
-    color: #8B7CC8;
+.sidebar-group{
+
+    display:none;
+
+    margin-left:12px;
+
 }
 
-.sidebar-group {
-    display: none;
-    margin-left: 10px;
+.sidebar-group.open{
+
+    display:block;
+
 }
 
-.sidebar-group.open {
-    display: block;
+.sidebar-section{
+
+    cursor:pointer;
+
+    padding:10px 0;
+
+    font-weight:700;
+
 }
 
-.sidebar-section {
-    cursor: pointer;
-    padding: 10px 0;
-    font-weight: 600;
+.sidebar-search{
+
+    width:100%;
+
+    padding:12px 14px;
+
+    margin-bottom:16px;
+
+    border:2px solid var(--border);
+
+    border-radius:14px;
+
+    background:white;
+
+    transition:.3s;
+
+    font-size:15px;
+
 }
 
-.sidebar-search {
-    width: 100%;
-    padding: 10px 12px;
-    margin-bottom: 12px;
-    border: 1px solid #EAE5F5;
-    border-radius: 8px;
-    font-size: 14px;
+.sidebar-search:focus{
+
+    outline:none;
+
+    border-color:var(--primary);
+
+    box-shadow:
+    0 0 0 5px rgba(37,99,235,.12);
+
 }
+
 /* ---------- CONTENT ---------- */
 
-#content {
-    flex: 1;
-    padding: 50px;
-    background: #FCFBF7;
+#content{
 
-    height: 100vh;       /* IMPORTANT */
-    overflow-y: auto;    /* THIS enables scrolling inside content */
+    flex:1;
+
+    padding:50px;
+
+    background:transparent;
+
+    height:100vh;
+
+    overflow-y:auto;
+
 }
+
 .container{
 
-max-width:900px;
+    max-width:920px;
 
-margin:auto;
+    margin:auto;
 
-padding:50px 20px;
+    padding:40px 20px;
 
 }
 
@@ -154,9 +257,17 @@ padding:50px 20px;
 
 .logo{
 
-width:165px;
+    width:170px;
 
-margin-bottom:18px;
+    margin-bottom:18px;
+
+    transition:.35s;
+
+}
+
+.logo:hover{
+
+    transform:scale(1.04);
 
 }
 
@@ -164,32 +275,33 @@ margin-bottom:18px;
 
 .hero h1{
 
-font-size:48px;
+    font-size:52px;
 
-margin:0;
+    margin:0;
 
-font-family:'Cormorant Garamond',serif;
+    font-weight:800;
 
-font-weight:600;
+    color:var(--text);
 
-color:#46506A;
-
-letter-spacing:.5px;
+    letter-spacing:-1px;
 
 }
 
-.home-link {
-    text-decoration: none;
-    color: inherit;
+.home-link{
+
+    text-decoration:none;
+
+    color:inherit;
+
 }
 
 .header-title{
 
-font-size:24px;
+    font-size:26px;
 
-font-weight:600;
+    font-weight:800;
 
-color:#46506A;
+    color:var(--text);
 
 }
 
@@ -197,242 +309,500 @@ color:#46506A;
 
 .tagline{
 
-font-size:18px;
+    font-size:18px;
 
-margin-top:12px;
+    margin-top:14px;
 
-color:#6B7280;
+    color:var(--text-light);
 
 }
 
-/* ---------- CARDS ---------- */
+/* ==========================================================
+   PART 2 - CARDS & HOME PAGE
+========================================================== */
 
 .card{
 
-background:#FFFFFF;
+    position:relative;
 
-padding:28px;
+    overflow:hidden;
 
-margin-bottom:20px;
+    background:rgba(255,255,255,.96);
 
-border-radius:16px;
+    border-radius:20px;
 
-cursor:pointer;
+    padding:30px;
 
-transition:.25s;
+    margin-bottom:26px;
 
-border:1px solid #EAE5F5;
+    cursor:pointer;
 
-box-shadow:0 2px 8px rgba(0,0,0,.04);
+    border:1px solid rgba(37,99,235,.08);
+
+    box-shadow:var(--shadow);
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        border-color .35s ease;
+
+    animation:fadeUp .7s ease both;
 
 }
 
+/* Animated top border */
+
+.card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:0;
+
+    width:100%;
+    height:4px;
+
+    background:
+    linear-gradient(
+        90deg,
+        var(--primary),
+        var(--secondary)
+    );
+
+    transform:scaleX(0);
+
+    transform-origin:left;
+
+    transition:.35s;
+
+}
+
+.card:hover::before{
+
+    transform:scaleX(1);
+
+}
+
+/* Hover */
+
 .card:hover{
 
-transform:translateY(-3px);
+    transform:
+        translateY(-10px)
+        scale(1.01);
 
-box-shadow:0 6px 18px rgba(0,0,0,.06);
+    border-color:rgba(37,99,235,.25);
 
-border-color:#DCCFF5;
+    box-shadow:
+
+    0 24px 55px rgba(37,99,235,.16),
+
+    0 0 18px rgba(6,182,212,.10);
 
 }
 
 .card h2{
 
-margin-top:0;
+    margin-top:0;
 
-margin-bottom:10px;
+    margin-bottom:14px;
 
-font-size:24px;
+    font-size:26px;
 
-font-weight:600;
+    font-weight:800;
 
-color:#46506A;
+    color:var(--text);
+
+    transition:.3s;
+
+}
+
+.card:hover h2{
+
+    color:var(--primary);
 
 }
 
 .card p{
 
-margin-bottom:0;
+    margin:0;
 
-color:#5A6472;
+    color:var(--text-light);
+
+    line-height:1.8;
 
 }
+
+/* ==========================================================
+   BUTTONS
+========================================================== */
+
+button{
+
+    background:
+    linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+
+    color:white;
+
+    border:none;
+
+    border-radius:12px;
+
+    padding:12px 22px;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+button:hover{
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+
+    0 14px 30px rgba(37,99,235,.28);
+
+}
+
+button:active{
+
+    transform:scale(.97);
+
+}
+
+/* ==========================================================
+   LINKS
+========================================================== */
+
+a{
+
+    color:var(--primary);
+
+    text-decoration:none;
+
+    transition:.25s;
+
+}
+
+a:hover{
+
+    color:var(--secondary);
+
+}
+
+/* ==========================================================
+   FADE ANIMATION
+========================================================== */
+
+@keyframes fadeUp{
+
+from{
+
+    opacity:0;
+
+    transform:
+        translateY(30px);
+
+}
+
+to{
+
+    opacity:1;
+
+    transform:
+        translateY(0);
+
+}
+
+}
+/* ==========================================================
+   PART 3 - CONTENT, TABLES, MOBILE & FINISHING
+========================================================== */
 
 /* ---------- MARKDOWN ---------- */
 
 #content h1{
 
-font-size:40px;
-
-color:#46506A;
-
-margin-bottom:20px;
+    font-size:42px;
+    font-weight:800;
+    color:var(--text);
+    margin-bottom:22px;
+    letter-spacing:-1px;
 
 }
 
 #content h2{
 
-margin-top:40px;
-
-color:#46506A;
+    margin-top:45px;
+    font-size:30px;
+    font-weight:700;
+    color:var(--primary);
 
 }
 
 #content h3{
 
-margin-top:30px;
-
-color:#46506A;
+    margin-top:32px;
+    font-size:22px;
+    color:var(--text);
 
 }
 
 #content p{
 
-color:#4B5563;
+    color:var(--text-light);
+    line-height:1.9;
 
 }
+
+#content ul,
+#content ol{
+
+    line-height:1.9;
+
+}
+
+#content li{
+
+    margin:8px 0;
+
+}
+
+/* ---------- IMAGES ---------- */
 
 #content img{
 
-max-width:100%;
-
-border-radius:12px;
-
-margin:25px 0;
+    max-width:100%;
+    display:block;
+    margin:30px auto;
+    border-radius:18px;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
 
 }
 
+/* ---------- TABLES ---------- */
+
 #content table{
 
-width:100%;
-
-border-collapse:collapse;
-
-margin:25px 0;
+    width:100%;
+    border-collapse:collapse;
+    margin:30px 0;
+    background:white;
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
 
 }
 
 #content th{
 
-background:#F7F4FC;
-
-padding:12px;
-
-border:1px solid #EAE5F5;
+    background:linear-gradient(90deg,var(--primary),var(--secondary));
+    color:white;
+    padding:14px;
+    text-align:left;
 
 }
 
 #content td{
 
-padding:12px;
-
-border:1px solid #EAE5F5;
+    padding:14px;
+    border-bottom:1px solid #E5E7EB;
 
 }
+
+#content tr:hover{
+
+    background:#F8FBFF;
+
+}
+
+/* ---------- CODE ---------- */
 
 #content code{
 
-background:#F6F4FA;
-
-padding:3px 6px;
-
-border-radius:5px;
-
-font-size:15px;
+    background:#EEF6FF;
+    color:var(--primary);
+    padding:4px 8px;
+    border-radius:8px;
+    font-size:15px;
 
 }
 
+pre{
+
+    background:#0F172A;
+    color:white;
+    padding:20px;
+    border-radius:16px;
+    overflow:auto;
+
+}
+
+/* ---------- BLOCKQUOTE ---------- */
+
+blockquote{
+
+    border-left:5px solid var(--primary);
+    background:#F8FBFF;
+    padding:16px 20px;
+    margin:25px 0;
+    border-radius:10px;
+
+}
+
+/* ---------- BREADCRUMB ---------- */
+
+#breadcrumb{
+
+    font-size:14px;
+    color:var(--text-light);
+    margin-bottom:20px;
+
+}
+
+#breadcrumb a{
+
+    color:var(--primary);
+
+}
+
+#breadcrumb a:hover{
+
+    color:var(--secondary);
+
+}
+
+/* ---------- NAVIGATION BUTTONS ---------- */
+
+#nav-buttons{
+
+    margin-top:50px;
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+
+}
+
+/* ---------- SCROLLBAR ---------- */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#EEF2F7;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:linear-gradient(var(--primary),var(--secondary));
+    border-radius:10px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:var(--primary);
+
+}
+
+/* ---------- SELECTION ---------- */
+
+::selection{
+
+    background:rgba(37,99,235,.25);
+
+}
 
 /* ---------- MOBILE ---------- */
 
-@media(max-width:768px){
-
-.hero h1{
-
-font-size:34px;
-
-}
-
-.logo{
-
-width:130px;
-
-}
-
-body{
-
-font-size:16px;
-
-}
+@media (max-width:768px){
 
 .layout{
 
-flex-direction:column;
+    flex-direction:column;
 
 }
 
 #sidebar{
 
-width:100%;
-
-padding:18px;
-
-border-right:none;
-
-border-bottom:1px solid #EAE5F5;
+    width:100%;
+    height:auto;
+    border-right:none;
+    border-bottom:1px solid var(--border);
+    padding:18px;
 
 }
 
-.sidebar-item.active {
-    background: #F3EFFB;
-    color: #8B7CC8;
-    border-left: 4px solid #8B7CC8;
-    padding-left: 14px;
-}   
 #content{
 
-padding:24px;
+    padding:24px;
+    height:auto;
+
+}
+
+.hero h1{
+
+    font-size:36px;
+
+}
+
+.header-title{
+
+    font-size:22px;
+
+}
+
+.logo{
+
+    width:140px;
 
 }
 
 .card{
 
-padding:22px;
+    padding:22px;
+    border-radius:18px;
 
 }
-#breadcrumb {
-    font-size: 14px;
-    margin-top: 8px;
-    color: #6B7280;
+
+.card:hover{
+
+    transform:translateY(-5px);
+
 }
 
-#breadcrumb a {
-    color: #8B7CC8;
-    text-decoration: none;
+button{
+
+    width:100%;
+
 }
 
-#breadcrumb a:hover {
-    text-decoration: underline;
-}
+#nav-buttons{
 
-#nav-buttons {
-    margin-top: 40px;
-    display: flex;
-    justify-content: space-between;
-}
+    flex-direction:column;
 
-#nav-buttons button {
-    padding: 10px 16px;
-    border: none;
-    background: #8B7CC8;
-    color: white;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-#nav-buttons button:hover {
-    background: #6f5fb3;
 }
 
 }
+
+/* ==========================================================
+   END OF EEE TUTOR UI 2026
+========================================================== */
