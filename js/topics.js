@@ -158,6 +158,70 @@ const topics = {
          {
             title: "Components - Alternators and Transformers",
             file: "components-part1"
+        },
+        {
+            title: "Components - Busbars, CB and Isolators",
+            file: "components-part2"
+        },
+        {
+            title: "Components - CT and PT",
+            file: "components-part3"
+        },
+        {
+            title: "Components - Capacitor Banks, Reactors, Surge Arresters and Insulators",
+            file: "components-part4"
+        },
+         {
+            title: "Protection - Part 1",
+            file: "protection-part1"
+        },
+        {
+            title: "Protection - Part 2",
+            file: "protection-part2"
+        },
+        {
+            title: "Protection - Part 3",
+            file: "protection-part3"
+        },
+        {
+            title: "Protection - Part 4",
+            file: "protection-part4"
+        },
+         {
+            title: "Power System Analysis - Per Unit System",
+            file: "analysis-per-unit-system"
+        },
+         {
+            title: "Power System Analysis - Bus Admittance Matrix",
+            file: "analysis-bus-admittance-matrix"
+        },
+        {
+            title: "Power System Analysis - Bus Impedance Matrix",
+            file: "analysis-bus-impedance-matrix"
+        },
+         {
+            title: "Power System Analysis - Load Flow Studies",
+            file: "analysis-load-flow-studies"
+        },
+         {
+            title: "Power System Analysis - Gauss Seidal Method",
+            file: "analysis-gauss-seidal-method"
+        },
+        {
+            title: "Power System Analysis - Newton Raphson Method",
+            file: "analysis-newton-raphson-method"
+        },
+        {
+            title: "Power System Analysis - Fast Decoupled Load Flow",
+            file: "analysis-fast-decoupled-load-flow"
+        },
+        {
+            title: "Power System Analysis - Symmetrical Components",
+            file: "analysis-symmetrical-components"
+        },
+        {
+            title: "Power System Analysis - Sequence Networks",
+            file: "analysis-sequence-networks"
         }
 
     ],

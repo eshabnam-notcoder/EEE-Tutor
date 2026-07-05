@@ -2,7 +2,21 @@ function openSection(name) {
     localStorage.setItem("section", name);
     window.location.href = "section.html";
 }
+const section = localStorage.getItem("section");
 
+const title = document.getElementById("section-title");
+if (title) {
+    const names = {
+        basicElectrical: "Basic Electrical",
+        powerSystems: "Power Systems",
+        electricalMachines: "Electrical Machines",
+        powerElectronics: "Power Electronics",
+        controlSystems: "Control Systems",
+        measurements: "Measurements & Instrumentation"
+    };
+
+    title.textContent = names[section] || "EEE Tutor";
+}
 function openTopic(section, topic){
 
     localStorage.setItem("section", section);
@@ -22,7 +36,11 @@ function goBack() {
 
 function loadSection() {
 
-    const section = localStorage.getItem("section");
+    const title = document.getElementById("section-title");
+
+    if (title) {
+        title.textContent = getSectionDisplayName(section) || "EEE Tutor";
+    }
 
     const container = document.getElementById("topic-container");
 
