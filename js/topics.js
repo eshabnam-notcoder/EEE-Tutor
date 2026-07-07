@@ -204,7 +204,7 @@ const topics = {
             file: "analysis-load-flow-studies"
         },
          {
-            title: "Power System Analysis - Gauss Seidal Method",
+            title: "Power System Analysis - Gauss Seidel Method",
             file: "analysis-gauss-seidel-method"
         },
         {
