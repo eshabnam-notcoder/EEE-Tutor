@@ -205,7 +205,7 @@ const topics = {
         },
          {
             title: "Power System Analysis - Gauss Seidal Method",
-            file: "analysis-gauss-seidal-method"
+            file: "analysis-gauss-seidel-method"
         },
         {
             title: "Power System Analysis - Newton Raphson Method",
