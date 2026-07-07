@@ -1,0 +1,503 @@
+/*==================================================
+  EEE Tutor Animation Engine
+  animation.css
+==================================================*/
+
+
+/*==========================================
+  SVG LAYERS
+==========================================*/
+
+#wireLayer,
+#wireGlow,
+#batteryGroup,
+#ammeterGroup,
+#resistorGroup,
+#electronLayer{
+
+    pointer-events:none;
+
+}
+
+#electronLayer{
+
+    overflow:visible;
+
+}
+
+
+/*==========================================
+  OVERLAYS
+==========================================*/
+
+.overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+}
+
+.overlay-center{
+
+    position:absolute;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+}
+
+.overlay-top-right{
+
+    position:absolute;
+
+    top:18px;
+    right:18px;
+
+}
+
+.overlay-bottom-right{
+
+    position:absolute;
+
+    bottom:18px;
+    right:18px;
+
+}
+
+.overlay-bottom-left{
+
+    position:absolute;
+
+    bottom:18px;
+    left:18px;
+
+}
+
+
+/*==========================================
+  SVG LABELS
+==========================================*/
+
+.svg-title{
+
+    fill:var(--text);
+
+    font-size:22px;
+
+    font-weight:700;
+
+}
+
+.svg-label{
+
+    fill:var(--text-light);
+
+    font-size:16px;
+
+}
+
+.svg-value{
+
+    fill:var(--primary);
+
+    font-size:18px;
+
+    font-weight:700;
+
+}
+
+
+/*==========================================
+  COMPONENT TRANSITIONS
+==========================================*/
+
+svg g{
+
+    transition:
+        transform .35s ease,
+        opacity .35s ease;
+
+}
+
+svg path,
+svg line,
+svg circle,
+svg rect,
+svg polyline{
+
+    transition:
+        fill .35s ease,
+        stroke .35s ease,
+        opacity .35s ease;
+
+}
+
+
+/*==========================================
+  COMPONENT STATES
+==========================================*/
+
+.component-hidden{
+
+    opacity:0;
+
+}
+
+.component-visible{
+
+    opacity:1;
+
+}
+
+.component-active{
+
+    filter:drop-shadow(
+        0 0 10px
+        rgba(37,99,235,.35)
+    );
+
+}
+
+
+/*==========================================
+  HIGHLIGHT RING
+==========================================*/
+
+.highlight-ring{
+
+    fill:none;
+
+    stroke:var(--secondary);
+
+    stroke-width:4;
+
+    stroke-dasharray:8 6;
+
+    animation:ringRotate 8s linear infinite;
+
+}
+
+@keyframes ringRotate{
+
+    from{
+
+        stroke-dashoffset:0;
+
+    }
+
+    to{
+
+        stroke-dashoffset:-56;
+
+    }
+
+}
+/*==================================================
+  PARTICLE ANIMATION
+==================================================*/
+
+.particle{
+
+    opacity:0;
+
+    transform-origin:center;
+
+    animation:particleFade .5s linear forwards;
+
+}
+
+.electron{
+
+    transform-origin:center;
+
+    animation:electronPulse 1.2s ease-in-out infinite;
+
+}
+
+.electron.fast{
+
+    animation-duration:.45s;
+
+}
+
+.electron.medium{
+
+    animation-duration:.8s;
+
+}
+
+.electron.slow{
+
+    animation-duration:1.6s;
+
+}
+
+@keyframes particleFade{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.5);
+
+    }
+
+    40%{
+
+        opacity:1;
+
+    }
+
+    to{
+
+        opacity:0;
+
+        transform:scale(1.3);
+
+    }
+
+}
+
+@keyframes electronPulse{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.25);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+
+/*==================================================
+  CURRENT FLOW
+==================================================*/
+
+.flow-line{
+
+    stroke-linecap:round;
+
+    stroke-dasharray:14 10;
+
+    animation:flowMove 1.5s linear infinite;
+
+}
+
+.flow-fast{
+
+    animation-duration:.6s;
+
+}
+
+.flow-medium{
+
+    animation-duration:1.2s;
+
+}
+
+.flow-slow{
+
+    animation-duration:2.2s;
+
+}
+
+@keyframes flowMove{
+
+    from{
+
+        stroke-dashoffset:0;
+
+    }
+
+    to{
+
+        stroke-dashoffset:-48;
+
+    }
+
+}
+
+
+/*==================================================
+  GRAPH
+==================================================*/
+
+.graph-line{
+
+    fill:none;
+
+    stroke:var(--primary);
+
+    stroke-width:4;
+
+    stroke-linecap:round;
+
+    stroke-linejoin:round;
+
+    transition:all .35s ease;
+
+}
+
+.graph-area{
+
+    opacity:.12;
+
+    transition:all .35s ease;
+
+}
+
+.graph-point{
+
+    transition:all .25s ease;
+
+}
+
+.graph-point.active{
+
+    r:7;
+
+}
+
+
+/*==================================================
+  METER
+==================================================*/
+
+.meter-needle{
+
+    transform-origin:center;
+
+    transition:transform .45s ease;
+
+}
+
+.meter-scale{
+
+    stroke:#CBD5E1;
+
+    stroke-width:2;
+
+    fill:none;
+
+}
+
+.meter-text{
+
+    fill:var(--text);
+
+    font-size:14px;
+
+}
+
+
+/*==================================================
+  BATTERY EFFECTS
+==================================================*/
+
+.battery-energy{
+
+    transition:
+        width .4s ease,
+        opacity .4s ease;
+
+}
+
+.battery-charging{
+
+    animation:batteryGlow 1.4s ease-in-out infinite;
+
+}
+
+@keyframes batteryGlow{
+
+    0%{
+
+        filter:drop-shadow(0 0 2px rgba(37,99,235,.2));
+
+    }
+
+    50%{
+
+        filter:drop-shadow(0 0 12px rgba(37,99,235,.6));
+
+    }
+
+    100%{
+
+        filter:drop-shadow(0 0 2px rgba(37,99,235,.2));
+
+    }
+
+}
+
+
+/*==================================================
+  SVG HELPERS
+==================================================*/
+
+.no-select{
+
+    user-select:none;
+
+}
+
+.no-pointer{
+
+    pointer-events:none;
+
+}
+
+.svg-shadow{
+
+    filter:drop-shadow(0 4px 10px rgba(15,23,42,.12));
+
+}
+
+.svg-glow{
+
+    filter:drop-shadow(0 0 10px rgba(6,182,212,.45));
+
+}
+
+.fade-enter{
+
+    animation:fadeEnter .35s ease forwards;
+
+}
+
+@keyframes fadeEnter{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(8px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}

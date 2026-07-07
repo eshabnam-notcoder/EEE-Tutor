@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ohm's Law Interactive | EEE Tutor</title>
+
+<link rel="stylesheet" href="../engine/theme.css">
+<link rel="stylesheet" href="../engine/animation.css">
+
+</head>
+
+<body>
+
+<div class="animation-page">
+
+    <!-- ==========================
+         HEADER
+    =========================== -->
+
+    <header class="animation-header">
+
+        <div>
+
+            <div class="topic-tag">
+                Module 1 • Basic Electrical Engineering
+            </div>
+
+            <h1>Ohm's Law</h1>
+
+            <p class="topic-description">
+                Adjust voltage and resistance to observe how current changes in real time.
+                Watch electrons flow, meters respond, and graphs update instantly.
+            </p>
+
+        </div>
+
+    </header>
+
+
+    <!-- ==========================
+          MAIN LAYOUT
+    =========================== -->
+
+    <main class="animation-layout">
+
+        <!-- LEFT PANEL -->
+
+        <section class="panel controls-panel">
+
+            <div class="panel-title">
+                Controls
+            </div>
+
+            <!-- Voltage -->
+
+            <div class="control-group">
+
+                <label>
+                    Voltage (V)
+                </label>
+
+                <input
+                    type="range"
+                    id="voltageSlider"
+                    min="1"
+                    max="24"
+                    value="12"
+                >
+
+                <div class="slider-value">
+
+                    <span id="voltageValue">
+                        12 V
+                    </span>
+
+                </div>
+
+            </div>
+
+            <!-- Resistance -->
+
+            <div class="control-group">
+
+                <label>
+                    Resistance (Ω)
+                </label>
+
+                <input
+                    type="range"
+                    id="resistanceSlider"
+                    min="1"
+                    max="20"
+                    value="6"
+                >
+
+                <div class="slider-value">
+
+                    <span id="resistanceValue">
+                        6 Ω
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- Formula Card -->
+
+            <div class="formula-card">
+
+                <h3>Ohm's Law</h3>
+
+                <div class="formula">
+
+                    I =
+                    <span>V</span>
+                    /
+                    <span>R</span>
+
+                </div>
+
+                <p>
+                    Current is directly proportional to voltage and
+                    inversely proportional to resistance.
+                </p>
+
+            </div>
+
+        </section>
+                <!-- =========================================
+             CENTER PANEL : INTERACTIVE CIRCUIT
+        ========================================== -->
+
+        <section class="panel circuit-panel">
+
+            <div class="panel-title">
+                Interactive Circuit
+            </div>
+
+            <div class="circuit-stage">
+
+                <!-- Live Readings -->
+
+                <div class="live-readings">
+
+                    <div class="reading-card">
+                        <span class="reading-label">Voltage</span>
+                        <span class="reading-value" id="displayVoltage">
+                            12.0 V
+                        </span>
+                    </div>
+
+                    <div class="reading-card">
+                        <span class="reading-label">Resistance</span>
+                        <span class="reading-value" id="displayResistance">
+                            6.0 Ω
+                        </span>
+                    </div>
+
+                    <div class="reading-card">
+                        <span class="reading-label">Current</span>
+                        <span class="reading-value" id="displayCurrent">
+                            2.00 A
+                        </span>
+                    </div>
+
+                    <div class="reading-card">
+                        <span class="reading-label">Power</span>
+                        <span class="reading-value" id="displayPower">
+                            24.0 W
+                        </span>
+                    </div>
+
+                </div>
+
+                <!-- =====================
+                     SVG CIRCUIT
+                ====================== -->
+
+                <svg
+                    class="circuit-svg"
+                    viewBox="0 0 900 520"
+                    id="circuitSVG"
+                >
+
+                    <!-- Glow Layer -->
+
+                    <g id="wireGlow"></g>
+
+                    <!-- Wires -->
+
+                    <g id="wireLayer"></g>
+
+                    <!-- Battery -->
+
+                    <g id="batteryGroup"></g>
+
+                    <!-- Ammeter -->
+
+                    <g id="ammeterGroup"></g>
+
+                    <!-- Resistor -->
+
+                    <g id="resistorGroup"></g>
+                    <path
+                        id="electronPath"
+                        d="M120 260 H320 L420 260 H700 V120 H120 Z"
+                        fill="none"
+                        stroke="none"
+                    />
+                    <!-- Electron Animation -->
+
+                    <g id="electronLayer"></g>
+
+                </svg>
+
+                <!-- Floating Meter -->
+
+                <div class="floating-meter">
+
+                    <div class="meter-title">
+                        Current Meter
+                    </div>
+
+                    <div
+                        class="meter-value"
+                        id="meterCurrent"
+                    >
+                        2.00 A
+                    </div>
+
+                    <div class="meter-bar">
+
+                        <div
+                            class="meter-fill"
+                            id="meterFill"
+                        ></div>
+
+                    </div>
+                    <div id="graphContainer"></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+              RIGHT PANEL
+        ========================================== -->
+
+        <section class="panel info-panel">
+
+            <div class="panel-title">
+                Live Observation
+            </div>
+
+            <div class="observation-card">
+
+                <h3>What is Happening?</h3>
+
+                <p id="observationText">
+
+                    Increasing the voltage increases the electric
+                    field inside the conductor. Electrons move
+                    faster, producing a larger current.
+
+                </p>
+
+            </div>
+
+            <div class="calculation-card">
+
+                <h3>Calculation</h3>
+
+                <div class="calc-row">
+
+                    <span>Voltage</span>
+
+                    <strong id="calcVoltage">
+                        12 V
+                    </strong>
+
+                </div>
+
+                <div class="calc-row">
+
+                    <span>Resistance</span>
+
+                    <strong id="calcResistance">
+                        6 Ω
+                    </strong>
+
+                </div>
+
+                <div class="calc-row">
+
+                    <span>Current</span>
+
+                    <strong id="calcCurrent">
+                        2 A
+                    </strong>
+
+                </div>
+
+                <div class="calc-row">
+
+                    <span>Power</span>
+
+                    <strong id="calcPower">
+                        24 W
+                    </strong>
+
+                </div>
+
+            </div>
+
+            <div class="tip-card">
+
+                <h3>Key Concept</h3>
+
+                <p>
+
+                    ✔ Increase Voltage → Current increases
+
+                </p>
+
+                <p>
+
+                    ✔ Increase Resistance → Current decreases
+
+                </p>
+
+                <p>
+
+                    ✔ Current depends on both Voltage and Resistance.
+
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+            <!-- =========================================
+             BOTTOM INFORMATION BAR
+        ========================================== -->
+
+        <footer class="animation-footer">
+
+            <div class="status-card">
+
+                <span class="status-label">
+                    Circuit Status
+                </span>
+
+                <strong id="statusText">
+                    Stable Operation
+                </strong>
+
+            </div>
+
+            <div class="status-card">
+
+                <span class="status-label">
+                    Electron Speed
+                </span>
+
+                <strong id="electronSpeed">
+                    Medium
+                </strong>
+
+            </div>
+
+            <div class="status-card">
+
+                <span class="status-label">
+                    Learning Objective
+                </span>
+
+                <strong>
+                    Understand the relationship between V, I and R
+                </strong>
+
+            </div>
+
+        </footer>
+
+    </div>
+
+
+    <!-- =========================================
+         REUSABLE ENGINE MODULES
+    ========================================== -->
+
+    <script src="../engine/utils.js"></script>
+ 
+    <script src="../engine/engine.js"></script>
+    
+    <script src="../engine/battery.js"></script>
+
+    <script src="../engine/meter.js"></script>
+
+    <script src="../engine/particles.js"></script>
+
+    <script src="../engine/graph.js"></script>
+
+    
+
+
+    <!-- =========================================
+         OHM'S LAW LOGIC
+    ========================================== -->
+
+    <script src="ohms-law.js"></script>
+
+</body>
+</html>
