@@ -222,7 +222,60 @@ const topics = {
         {
             title: "Power System Analysis - Sequence Networks",
             file: "analysis-sequence-networks"
+        },
+         {
+            title: "Fault Analysis",
+            file: "fault-analysis"
+        },
+         {
+            title: "Power System Stability",
+            file: "power-system-stability"
+        },
+         {
+            title: "Economic Operation of Power Systems",
+            file: "economic-operation-of-power-systems"
+        },
+         {
+            title: "Power Quality",
+            file: "power-quality"
+        },
+         {
+            title: "Reactive Power Compensation",
+            file: "reactive-power-compensation"
+        },
+         {
+            title: "HVDC Transmission",
+            file: "hvdc-transmission"
+        },
+         {
+            title: "Smart Grid",
+            file: "smart-grid"
+        },
+        {
+            title: "Renewable Energy Integration",
+            file: "renewable-energy-integration"
+        },
+        {
+            title: "Power System Operation and Control",
+            file: "power-system-operation-and-control"
+        },
+        {
+            title: "Substations",
+            file: "substations"
+        },
+        {
+            title: "Power System Protection",
+            file: "power-system-protection"
+        },
+        {
+            title: "Power System Planning",
+            file: "power-system-planning"
+        },
+        {
+            title: "Power System Transients",
+            file: "power-system-transients"
         }
+
 
     ],
 
